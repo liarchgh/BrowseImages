@@ -19,19 +19,5 @@
             android:id="@+id/t2"
             android:text="aaaaaaaaa"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="10pt"
-            android:id="@+id/t4"
-            android:text="aaaaaaaaa"
-            />
-        <ImageView
-        android:id="@+id/iv0"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:src="@drawable/dao"
-        />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

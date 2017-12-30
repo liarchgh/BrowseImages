@@ -235,7 +235,7 @@ public class Images extends AppCompatActivity {
         final ListView lv = (ListView)findViewById(R.id.listview);
         final TextView t1 = (TextView)findViewById(R.id.t1);
         final TextView t3 = (TextView)findViewById(R.id.t3);
-        final ImageView i0 = (ImageView)findViewById(R.id.iv0);
+//        final ImageView i0 = (ImageView)findViewById(R.id.iv0);
         final LoadHtml lt = new LoadHtml();
         dialog.setMessage("Loading......");
 
@@ -264,73 +264,17 @@ public class Images extends AppCompatActivity {
                                 Map<String,Object> map = new HashMap<String,Object>();
                                 map.put("title",a.getTitle());
                                 map.put("date", a.getDate());
-                                map.put("imgurl", a.getImgurl());
-//                                map.put("image", new LoadBitMap().execute(a.getImgurl()));
-//                                new LoadPic(dialog, i0).execute(a.getImgurl();
-                                byte[] id = NetUtil.doGetImage(a.getImgurl());
-                                Bitmap bm = BitmapFactory.decodeByteArray(id, 0, id.length);
-                                map.put("image", bm);
                                 listMap.add(map);
                             }
-                            final String[] from = {"title", "date", "imgurl", "image"};
-                            final int[] to = {R.id.t1, R.id.t2, R.id.t4, R.id.iv0};
+                            final String[] from = {"title", "date"};
+                            final int[] to = {R.id.t1, R.id.t2};
 //                            final SimpleAdapter sa = new SimpleAdapter(Images.this, listMap, R.layout.listview, from, to);
                             final SimpleAdapter sa = new SimpleAdapter(Images.this, listMap, R.layout.listview, from, to);
-//                            sa.setViewBinder(new SimpleAdapter.ViewBinder() {
-//                                public boolean setViewValue(
-//                                        View view,
-//                                        Object data,
-//                                        String textRepresentation) {
-//                                    //判断是否为我们要处理的对象
-//                                    if(view instanceof ImageView  && data instanceof Bitmap){
-//                                        ImageView iv = (ImageView) view;
-//                                        iv.setImageBitmap((Bitmap) data);
-//                                    }
-//                                    else{
-//                                        TextView tv = (TextView)view;
-//                                        tv.setText((String)data);
-//                                    }
-//                                    return true;
-//                                }
-//                            });
-                            sa.setViewBinder(new SimpleAdapter.ViewBinder() {
-                                @Override
-                                public boolean setViewValue(View view, Object attentionList, String textRepresentation) {
-                                    // TODO Auto-generated method stub
-                                    if(view instanceof ImageView && attentionList instanceof Bitmap){
-                                        ImageView iv=(ImageView)view;
-                                        iv.setImageBitmap((Bitmap) attentionList);
-                                        return true;
-                                    }else if(view instanceof TextView && attentionList instanceof String){
-                                        TextView tv = (TextView)view;
-                                        tv.setText((String)attentionList);
-                                        return true;
-                                    }
-                                    return false;
-                                }
-                        });
                             if(!TextUtils.isEmpty(data)){
                                 lv.post(new Runnable(){
                                     @Override
                                     public void run() {
                                         lv.setAdapter(sa);
-//                                        sa.setViewBinder(new SimpleAdapter.ViewBinder() {
-//                                            public boolean setViewValue(
-//                                                    View view,
-//                                                    Object data,
-//                                                    String textRepresentation) {
-//                                                //判断是否为我们要处理的对象
-//                                                if(view instanceof ImageView  && data instanceof Bitmap){
-//                                                    ImageView iv = (ImageView) view;
-//                                                    iv.setImageBitmap((Bitmap) data);
-//                                                }
-//                                                else{
-//                                                    TextView tv = (TextView)view;
-//                                                    tv.setText((String)data);
-//                                                }
-//                                                return true;
-//                                            }
-//                                         });
                                     }
                                 });
                             }
