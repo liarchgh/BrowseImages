@@ -48,8 +48,8 @@ public class LoadText extends AsyncTask<String, Integer, String>{
         String data = null;
         try {
             data = NetUtil.doGet(url);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            data = "E";
         }
         return data;
     }

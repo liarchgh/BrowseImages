@@ -26,11 +26,11 @@ public class LoadImageUrls extends AsyncTask<String, Integer, List<String>>{
         if(dialog != null){
             dialog.dismiss();
         }
-        if(tv != null && result != null){
-            for(int i = 0; i < result.size(); ++i){
-                tv.setText(tv.getText().toString()+"\n"+result.get(i));
-            }
-        }
+//        if(tv != null && result != null){
+//            for(int i = 0; i < result.size(); ++i){
+//                tv.setText(tv.getText().toString()+"\n"+result.get(i));
+//            }
+//        }
     }
 
     @Override
@@ -51,7 +51,7 @@ public class LoadImageUrls extends AsyncTask<String, Integer, List<String>>{
             String html = NetUtil.doGet(url);
 //            String html = url;
 //            tv.setText("get html over");
-//            tv.setText(html);
+            tv.setText(html);
 //            Pattern pattern = Pattern.compile("^(\'imgData\',.*;$");
 //            Matcher matcher = pattern.matcher(html);
 //            boolean b= matcher.matches();
